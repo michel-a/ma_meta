@@ -42,7 +42,7 @@ public class SmsService {
 		sb.append("/");
 		sb.append(sale.getDate().getYear());
 		sb.append(" com um total de R$");
-		sb.append(new DecimalFormat("#,##0.00").format(sale.getAmount()));
+		sb.append(String.format("%.0f", sale.getAmount()));
 		
 		Twilio.init(twilioSid, twilioKey);
 
