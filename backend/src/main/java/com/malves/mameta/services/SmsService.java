@@ -1,5 +1,7 @@
 package com.malves.mameta.services;
 
+import java.text.DecimalFormat;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -40,7 +42,7 @@ public class SmsService {
 		sb.append("/");
 		sb.append(sale.getDate().getYear());
 		sb.append(" com um total de R$");
-		sb.append(String.format("%.2f", sale.getAmount()));
+		sb.append(new DecimalFormat("#,##0.00").format(sale.getAmount()));
 		
 		Twilio.init(twilioSid, twilioKey);
 
